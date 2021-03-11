@@ -1,0 +1,390 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors
+% ------------
+% * ifokkema
+% * Bertbk
+% * Hespe
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=1.5pt,
+	profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{svg}
+\usepackage[english, spanish]{babel}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+%	\newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+%	\usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Leonardo Gago}
+% job title/career
+\cvjobtitle{Ing. Electrónico \\\& Developer}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.jpg}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+%\cvbirthday{\today}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Lanús, Bs. As., Argentina}
+% phone number
+\cvphone{\href{https://wa.me/5491124027517?text=Hola Leonardo, he visto tu CV y me gustaría contactarte.}{+54 9 11 2402-7517}}
+% personal website
+%\cvsite{https://pandascience.net}
+% email address
+\cvmail{ljgago.cv@gmail.com}
+%\cvcustomdata{\faAt}{\href{mailto:ljgago.cv@gmail.com}{Email}}
+
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+\cvcustomdata{\faLinkedin}{\href{https://www.linkedin.com/in/ljgago/}{Linkedin: @ljgago}}
+\cvcustomdata{\faGithub}{\href{https://github.com/ljgago}{Github: @ljgago}}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	\profilesection{Acerca De Mi}
+	\aboutme{
+		Soy Ing. Electrónico y un desarrollador autodidacta. \\
+		Me apasiona el mundo de Linux, el Open Source y la tecnología. \\
+		Aprendí a programar en los primeros años de la Universidad y luego fui adquiriendo conocimiento en forma autodidacta tanto en el lado del frontend como en el backend, aprendiendo diferentes tecnologías, lenguajes y paradigmas. \\
+		Soy aficionado al gaming y me gusta tocar guitarra.
+		%Mis aptitudes estan enfocadas principalmente al desarrollo con tecnologías open source. \\
+		
+		
+	}
+	
+	\profilesection{Áreas de interés}
+	\begin{sidebarminipage}
+	    \raggedright
+        \chartlabel{Linux}
+        \chartlabel{IoT}
+        \chartlabel{Data Science}
+        \chartlabel{DevOps}
+        \chartlabel{Embedded Systems}
+     	\chartlabel{Backend}
+        \chartlabel{Distributed Systems}
+    % 	\chartlabel{Elixir}
+    % 	\chartlabel{Rust}
+    % 	\chartlabel{Data Science}
+    % 	\chartlabel{Docker}
+	\end{sidebarminipage}
+	
+	% social network accounts incl. proper hyperlinks
+	%\profilesection{Redes Sociales}
+	%	\begin{icontable}{2.5em}{1em}
+	%		%\social{\aiOverleafSquare}
+	%		%	{https://de.overleaf.com/latex/templates/forty-seconds-cv/pztcktmyngsk}
+	%		%	{Overleaf Template Link}
+	%		\social{\faLinkedin}
+	%			{https://www.linkedin.com/in/ljgago/}
+	%			{@ljgago}
+	%		\social{\faGithub}
+	%			{https://github.com/ljgago}
+	%			{github.com/ljgago}
+	%	\end{icontable}
+
+	%\profilesection{Idiomas}
+	%    \pointskill{\flag{ES.png}}{Español}{6}
+	%    \pointskill{\flag{GB.png}}{Inglés}{3}
+
+
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+%\addtobacksidebar{
+%	\profilesection{Hard Skills}
+%		\skill{\faBalanceScale}{Sleeping almost all day}
+%		\skill{\faSitemap}{Eating a lot of bamboo sprouts}
+%		\skill{\faGraduationCap}{Relaxing rest of the day}
+%
+%	\profilesection{Soft Skills}
+%		\pointskill{\faHome}{Looking Cute}{4}[4]
+%			\skill[1.8em]{\faCompress}{No need to specify further}
+%		\pointskill{\faChild}{Chillin' hard}{3}[4]
+%			\skill[1.8em]{\faCompress}{On a tree}
+%			\skill[1.8em]{\faCompress}{In the grass}
+%
+%	\profilesection{Diagrams}
+%	\begin{sidebarminipage}
+%		\chartlabel{Bubble}
+%		\chartlabel{Diagrams}
+%		\chartlabel{with}
+%		\chartlabel{proper}
+%		\chartlabel{overflow}
+%		\chartlabel{protection}
+%		\chartlabel{for}
+%		\chartlabel{labels}
+%	\end{sidebarminipage}
+%
+%	\begin{figure}\centering
+%		\smartdiagram[bubble diagram]{
+%			\textcolor{white}{\textbf{Being a}} \\
+%			\textcolor{white}{\textbf{Panda}}, % center bubble
+%			\textcolor{black!90}{Eating},
+%			\textcolor{black!90}{Sleeping},
+%			\textcolor{black!90}{Rolling},
+%			\textcolor{black!90}{Playing},
+%			\textcolor{black!90}{Chilling}
+%		}
+%	\end{figure}
+%
+%	\chartlabel{Wheel Chart}
+%
+%	\wheelchart{3.7em}{2em}{%
+%	20/3em/maincolor!50/Chill,
+%	15/3em/maincolor!15/Play,
+%	30/4em/maincolor!40/Sleep,
+%	20/3em/maincolor!20/Eat
+%	}
+%
+%	\profilesection{Barskills}
+%	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+%	\barskill{\faImage}{Playing Chess}{30}
+%	\barskill{\faMusic}{Playing the bamboo flute}{50}
+%
+%	\profilesection{Memberships}
+%	\begin{memberships}
+%		\membership[4em]{pics/logo.png}{PandaScience.net}
+%		\membership[4em]{pics/logo.png}{Some longer text spanning over more than
+%			only one line}
+%	\end{memberships}
+%}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Experiencia Laboral}
+\begin{cvtable}[1.5]
+	\cvitem{2010 -- Actual}{Ingeniero de Laboratorio}{Relación de Dependencia}{Soporte técnico Nivel 2, reparación e instalación de equipos de Video y Audio profesionales.\\
+	Mantenimiento y administración de servidores Windows y Linux.\\
+	Instalación y configuración de equipamiento profesional para salas de grabación y estudios de TV.}
+	\cvitem{2014 -- 2015}{Desarrollo Automatización/Domótica}{Freelance}{Desarrollo de una WebApp para administrar y controlar dispositivos con Arduino.}
+\end{cvtable}
+
+
+\cvsection{Estudios}
+%\cvsubsection{Universitarios}
+\begin{cvtable}[1.5]
+	\cvitem{2003 -- 2018}{Ingeniería Electrónica}{Universitario}
+		{Universidad Tecnológica Nacional FRBA, CABA.}
+	\cvitem{2000 -- 2002}{Técnico Electromecánico}{Secundario}
+		{E.E.S.T. N°5, John F. Kennedy, Lanús.}
+\end{cvtable}
+
+%\cvsubsection{Secundario}
+%\begin{cvtable}[1.5]
+%	\cvitem{2000 -- 2002}{Técnico Electromecánico}{}
+%		{E.E.T. Nro 5, John F. Kennedy, Lanús}
+%\end{cvtable}
+
+\cvsection{Proyectos Personales}
+\begin{cvtable}
+    \cvpubitem{Minex}{Desarrollo de un SDK cliente para Minio/S3 en Elixir.}{Tecnologías: Elixir}{2020}
+    \cvpubitem{blob-viewer}{Desarrollo de una App para la gestión de blobs para la plataforma Azure}{Tecnologías: Go, Javascript/Typescript, React.}{2019}
+    \cvpubitem{AdBus}{Desarrollo de un backend y software IoT para la visualización y gestión de contenido multimedia para cartelería publicitaria led en Colectivos.}{Tecnologías: Go, NATS, gRPC, Minio/S3.}{2018}
+	\cvpubitem{MusicBot}{Desarrollo de un bot para Discord encargado de reproducir streamings de radio y audio de la plataforma Youtube.}{Tecnologías: Go, Docker}{2017}
+
+\end{cvtable}
+
+
+\cvsection{Cursos y Eventos}
+\begin{cvtable}
+	\cvitem{2020}{Maratón Behind The Code 2020.}{Evento: IBM}{}
+	\cvitem{2020}{Intro to Deep Learning with PyTorch.}{Curso: Udacity}{}
+\end{cvtable}
+
+\cvsection{Idiomas}
+\graphicspath{{pics/flags/}}
+\begin{cvtable}
+	\cvitem{\flag{ES.png}}{Español}{Nativo}{}
+	\cvitem{\flag{GB.png}}{Inglés}{Intermedio}{}
+\end{cvtable}
+
+\cvsection{Lenguajes y Tecnologías}
+\vspace{5mm}
+\begin{cvtable}
+    \vspace{7mm}
+    \includesvg[height=1.1cm]{pics/tech/cpp.svg} \hspace{1cm}
+    \includesvg[height=1.1cm]{pics/tech/go.svg} \hspace{1cm}
+    \includesvg[height=1.1cm]{pics/tech/javascript.svg} \hspace{1cm}
+    \includesvg[height=1.1cm]{pics/tech/typescript.svg} \hspace{1cm}
+    \includesvg[height=1.1cm]{pics/tech/python.svg}
+    \\
+    \includesvg[height=1.1cm]{pics/tech/rust.svg} \hspace{1.1cm}
+    \includesvg[height=1.1cm]{pics/tech/git.svg} \hspace{1.3cm}
+    \includesvg[height=1.1cm]{pics/tech/elixir.svg} \hspace{1cm}
+    \includesvg[height=1.1cm]{pics/tech/docker.svg} \hspace{0.8cm}
+    \includesvg[height=1.1cm]{pics/tech/nodejs-icon.svg} \hspace{1cm}
+    
+    
+\end{cvtable}
+%\end{cvtable}
+
+
+
+
+%\begin{cvtable}
+%	\cvitemshort{Relaxing}{Master the fine art of relaxing everywhere}
+%	\cvitemshort{Music}{Playing the bamboo flute in the 1st Panda Orchestra}
+%	\cvitemshort{Education}{Teaching young pandas to be more panda-like}
+%\end{cvtable}
+
+
+%\newpage
+
+%\makebacksidebar
+
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+%\cvsection{section}
+%\cvsubsection{Subsection}
+%\begin{cvtable}
+%    \cvitem{dates}{cv-item title}{location}{optional: description}
+%\end{cvtable}
+%
+%\cvsection{cvitem}
+%\cvsubsection{Multi-line with longer description}
+%\begin{cvtable}
+%	\cvitem{date}{Description}{location}{Some longer and more detailed
+%		description, that takes two lines of space instead of only one.}
+%	\cvitem{date}{Description}{location}{Some longer and more detailed
+%		description, that takes two lines of space instead of only one.}
+%	\cvitem{date}{Description}{location}{Some longer and more detailed
+%		description, that takes two lines of space instead of only one.}
+%\end{cvtable}
+%
+%\cvsubsection{One-line without description}
+%\begin{cvtable}
+%	\cvitem{Award}{One-line description}{Sponsor}{}
+%	\cvitem{Award}{One-line description}{Sponsor}{}
+%	\cvitem{Award}{One-line description}{Sponsor}{}
+%\end{cvtable}
+%
+%\cvsection{cvitemshort}
+%\cvsubsection{One-line}
+%\begin{cvtable}
+%	\cvitemshort{Key}{Some further description}
+%	\cvitemshort{Key}{Some further description}
+%	\cvitemshort{Key}{Some further description}
+%\end{cvtable}
+%
+%\cvsubsection{Multi-line with longer description}
+%\begin{cvtable}
+%	\cvitemshort{Key}{Some further description. Can fill even more than
+%		only one single line while still keeping the correct indendation level.}
+%	\cvitemshort{Key}{Some further description. Can fill even more than
+%		only one single line while still keeping the correct indendation level.}
+%	\cvitemshort{Key}{Some further description. Can fill even more than
+%		only one single line while still keeping the correct indendation level.}
+%\end{cvtable}
+%
+%\cvsection{cvpubitem}
+%\begin{cvtable}
+%	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+%	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+%	\cvpubitem{Publication title that is spanning over multiple lines and still
+%		does not look too bad}{Authors}{Journal}{Year}
+%\end{cvtable}
+
+%\cvsignature
+
+\end{document}
